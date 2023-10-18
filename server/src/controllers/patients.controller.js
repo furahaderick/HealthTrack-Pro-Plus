@@ -1,15 +1,28 @@
-import { getMultiple } from "../services/patients.service.js";
+import Patient from "../models/patients.model.js";
 
-// @desc Get patients
+// @desc Read patients
 // @route GET /patients
 // @access Public
-function getPatients(req, res, next) {
-	try {
-		res.json(patients.getMultiple(req.query.page));
-	} catch (err) {
-		console.error("Error retrieving patients", err.message);
-		next(err);
-	}
+async function getPatients(req, res) {
+	const patients = await Patient.findAll();
+   res.json(patients);
 }
 
-export { getPatients };
+// @desc Create patients
+// @route POST /patients
+// @access Public
+async function createPatient(req, res) {
+	const {name, temperature, frequent_sickness, heart_rate, NID} = req.body;
+   if(!name || !temperature || !heart_rate || !NID) {
+      res.status(400);
+      throw new Error("Missing mandatory fields");
+   }
+
+   const newPatient = await Patient.create(req.body);
+   res.json(newPatient);
+}
+
+// localhost:8000/patients/?patient_nid=1200580003689050&patient_name=Derrick&frequent_sickness=malaria&heart_rate=65&body_temperature=32
+// to insert : name, temperature, frequent-sickeness, heart-rate, NID.
+
+export { getPatients, createPatient };

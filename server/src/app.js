@@ -13,5 +13,3 @@ app.use("/patients", patientsRouter);
 
 export default app;
 
-// localhost:8000/patients/?patient_nid=1200580003689050&patient_name=Derrick&frequent_sickness=malaria&heart_rate=65&body_temperature=32
-// to insert : name, temperature, frequent-sickeness, heart-rate, NID.
