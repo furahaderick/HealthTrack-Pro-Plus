@@ -55,7 +55,7 @@ async function updatePatient(req, res) {
 		},
 	});
 
-   res.json(newPatient);
+	res.json({ updatedRows: newPatient });
 }
 
 // @desc Delete patient
@@ -73,9 +73,9 @@ async function deletePatient(req, res) {
 		},
 	});
 
-	res.json(deletedPatient);
+	res.json({ updatedRows: deletedPatient });
 }
 
 // localhost:8000/patients/?patient_nid=1200580003689050&patient_name=Derrick&frequent_sickness=malaria&heart_rate=65&body_temperature=32
 
-export { getPatients, createPatient, getPatient, deletePatient };
+export { getPatients, createPatient, getPatient, updatePatient, deletePatient };

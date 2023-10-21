@@ -5,7 +5,8 @@ import {
 	getPatients,
 	createPatient,
 	getPatient,
-	deletePatient
+	deletePatient,
+	updatePatient,
 } from "../controllers/patients.controller.js";
 
 const patientsRouter = express.Router();
@@ -16,6 +17,10 @@ patientsRouter
 	.get(expressAsyncHandler(getPatients))
 	.post(expressAsyncHandler(createPatient));
 
-	patientsRouter.route("/:id").get(getPatient).delete(expressAsyncHandler(deletePatient))
+patientsRouter
+	.route("/:id")
+	.get(expressAsyncHandler(getPatient))
+	.put(expressAsyncHandler(updatePatient))
+	.delete(expressAsyncHandler(deletePatient));
 
 export default patientsRouter;
