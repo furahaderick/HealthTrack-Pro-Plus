@@ -1,8 +1,8 @@
-import { DataTypes, Model, Sequelize } from "sequelize";
+import { Sequelize, Model, DataTypes } from "sequelize";
 
 const sequelize = new Sequelize({
 	dialect: "sqlite",
-	storage: "./database.sqlite",
+	storage: "./patients.sqlite"
 });
 
 class Patient extends Model {}
