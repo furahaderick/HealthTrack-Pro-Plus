@@ -11,7 +11,7 @@ import {
 
 const patientsRouter = express.Router();
 
-//  getOne, updatePatient, deletePatient
+
 patientsRouter
 	.route("/")
 	.get(expressAsyncHandler(getPatients))

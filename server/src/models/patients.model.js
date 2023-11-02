@@ -18,7 +18,7 @@ Patient.init(
 			allowNull: false,
 		},
 		heart_rate: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.FLOAT,
 			allowNull: false,
 		},
 		temperature: {

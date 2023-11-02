@@ -49,13 +49,16 @@ async function updatePatient(req, res) {
 		res.status(404).json({ message: "Error. Patient not found" });
 	}
 
-	const newPatient = await Patient.update(req.body, {
-		where: {
-			id: id,
-		},
-	});
-
-	res.json({ updatedRows: newPatient });
+	try {
+		const newPatient = await Patient.update(req.body, {
+			where: {
+				id: id,
+			},
+		});
+		res.json({ updatedRows: newPatient });
+	} catch (err) {
+		console.error(err);
+	}
 }
 
 // @desc Delete patient
