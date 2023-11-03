@@ -22,7 +22,7 @@ Patient.init(
 			allowNull: false,
 		},
 		temperature: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.FLOAT,
 			allowNull: false,
 		},
 		frequent_sickness: {
@@ -30,7 +30,7 @@ Patient.init(
 		},
 		NID: {
 			type: DataTypes.INTEGER,
-			unique: true,
+			// unique: true,
 			allowNull: false,
 		},
 	},
